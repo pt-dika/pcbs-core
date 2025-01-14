@@ -1,0 +1,47 @@
+spring:
+  master:
+    datasource:
+      jdbc-url: jdbc:mariadb://10.50.11.79:3306/midware_master_db?autoReconnect=true
+      username: root
+      password: P@ssw0rd.15!
+      driverClassName: org.mariadb.jdbc.Driver
+  pcps:
+    datasource:
+      jdbc-url: jdbc:mariadb://10.50.11.79:3306/midware_pc_payment_switching_db?autoReconnect=true
+      username: root
+      password: P@ssw0rd.15!
+      driverClassName: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate.ddl-auto: none
+    generate-ddl: false
+    show-sql: false
+    database-platform: org.hibernate.dialect.MariaDBDialect
+oauth2:
+  tokenUrl: http://localhost:61059/oauth2/oauth/token
+  checkTokenUrl: http://localhost:61059/oauth2/oauth/check_token
+  syncClient: http://localhost:61055/oauth2/sync/client
+  authorizeTokenUrl: http://localhost:61059/oauth2/oauth/authorize
+  clientId: tester
+  clientSecret: tester
+iso8583:
+  host: 10.50.1.68
+  port: 2010
+  timeout: 2000
+  packager: /opt/tomcat/jpos-packager/packager/pcps_host/iso87binary.xml
+mqtt:
+  certPath: /raw/m2mqtt_ca_fp_devel.crt
+  automaticReconnect: true
+  cleanSession: false
+  ssl: true
+  connectionTimeout: 10
+  clientId: SWIPEPAY-PCPS-CLOUD
+  hostname: 10.50.11.61
+  port: 8883
+logging:
+  pattern:
+    console: "%clr(%X{CorrelationId}){yellow} %clr(%X{username}){yellow} | %clr(%-5p) | %clr(%d{yyyy-MM-dd E HH:mm:ss.SSS}){blue} | %clr(${PID}){faint} | %clr([%t]){cyan} | %class{36}.%M %L | %clr(%msg){green} %n"
+  file:
+    name: /opt/tomcat/logs/pcps.log
+cron:
+  expression: 0 0/1 * * * ?
+

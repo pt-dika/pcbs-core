@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: pcps
+  profiles:
+    active: ${profiles}
+#    active: dev
+#    active: dev2-tj
+#    active: staging
+server:
+  port: 8001
+  servlet:
+    context-path: /pcps-tj

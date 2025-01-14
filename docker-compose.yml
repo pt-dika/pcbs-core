@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  pcps:
+    build : .
+    restart: always
+    container_name: pcps
+    image: pcps:1.0
+    ports:
+      - 8001:8001
+    environment:
+      - profiles=docker-dev
+    networks:
+      - devel_network
+networks:
+  devel_network:
+    name: devel_network
+    external: true

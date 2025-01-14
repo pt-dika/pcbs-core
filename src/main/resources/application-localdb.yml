@@ -1,0 +1,72 @@
+spring:
+  master:
+    datasource:
+      jdbc-url: jdbc:mariadb://localhost:2600/midware_master_db?autoReconnect=true
+      username: root
+      password: P@ssw0rd.15!
+      driverClassName: org.mariadb.jdbc.Driver
+  pcps:
+    datasource:
+      jdbc-url: jdbc:mariadb://localhost:3306/midware_pc_payment_switching_db?autoReconnect=true
+      username: root
+      password: root
+      driverClassName: org.mariadb.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379
+    max-total: 128
+    max-idle: 128
+    min-idle: 16
+    min-evictable-idle-time-millis: 60
+    time-between-eviction-runs-millis: 30
+    block-when-exhausted: true
+    use-pool: true
+  jpa:
+    hibernate.ddl-auto: none
+    generate-ddl: false
+    show-sql: false
+    database-platform: org.hibernate.dialect.MariaDBDialect
+  security:
+    oauth2:
+      resource:
+        filter-order: 3
+oauth2:
+  tokenUrl: http://http://localhost:8080/oauth2/oauth/token
+  checkTokenUrl: http://localhost:8080/oauth2/oauth/check_token
+  syncClient: http://localhost:8080/oauth2/sync/client
+  authorizeTokenUrl: http://localhost:8080/oauth2/oauth/authorize
+  clientId: tester
+  clientSecret: tester
+iso8583:
+  timeout: 2000
+  packager: cfg/iso87binary.xml
+api:
+  baseUrl:
+    - http://36.37.119.121:61059/oauth2/oauth
+    - http://localhost:8081/pushnotification/api/v1
+    - http://36.37.119.121:61059/MerchantMobAppHost/v1
+mqtt:
+  certPath: raw/m2mqtt_dev_ca.crt
+  automaticReconnect: true
+  cleanSession: false
+  ssl: true
+  connectionTimeout: 10
+  clientId: ${COMPUTERNAME}-MQTT
+  hostname: 36.37.119.117
+  port: 61067
+api-core:
+  host: 36.37.119.121
+  port: 61059
+server:
+  port: 8081
+logging:
+  pattern:
+    console: "%clr(%X{CorrelationId}){yellow} %clr(%X{username}){yellow} | %clr(%-5p) | %clr(%d{yyyy-MM-dd E HH:mm:ss.SSS}){blue} | %clr(${PID}){faint} | %clr([%t]){cyan} | %class{36}.%M %L | %clr(%msg){green} %n"
+  file:
+    name: ./log/pcps.log
+  level:
+    ROOT: info
+
+
+cron:
+  expression: 0 0/10 * * * ?
