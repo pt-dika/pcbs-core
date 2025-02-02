@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  pcbs-settlement-file-upload:
+    build : .
+    restart: always
+    container_name: pcbs-settlement-file-upload
+    image: pcbs-settlement-file-upload:1.0
+    volumes:
+      - /root/logs/pcbs-settlement-file-upload:/logs
+      - /root/settlement-files:/settlement-files
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - core_data_shared_url=http://172.17.0.1:8030/core-data-shared
+      - schedulerCron=* 59 23 * * *
+      - generateBni=true
+      - generateMandiri=true
+      - generateBri=true
+      - generateBca=true
+      - generateDki=true
+    networks:
+      - dk-network
+networks:
+  dk-network:
+    name: dk_network
+    external: true

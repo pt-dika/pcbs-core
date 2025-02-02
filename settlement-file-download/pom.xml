@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>pcbs-core</artifactId>
+        <groupId>dk.apps</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>settlement-file-download</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>dck.pcbs</groupId>
+            <artifactId>commons</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>dck.apps</groupId>
+            <artifactId>pc-settlement-file-service</artifactId>
+            <version>1.0</version>
+            <systemPath>${project.basedir}/lib/pc-settlement-file-service-1.0.jar</systemPath>
+            <scope>system</scope>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>local</id>
+            <url>file://${project.basedir}/libs</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <finalName>pcbs-${project.name}-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

@@ -1,0 +1,69 @@
+spring:
+  application:
+    name: pcbs-settlement-file-upload
+  datasource:
+    url: jdbc:mysql://192.168.200.30:3306/pcbs_core_db?connectionTimeZone=Asia/Jakarta
+    username: root
+    password: t2zQ18BX!6y4
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+client:
+  datasharedCore:
+    baseUrl: http://172.17.0.1:8030/core-data-shared
+
+#scheduler:
+#  cron: * 59 23 * * *
+
+#sftp:
+#  BNI:
+#    host: 1.tcp.ap.ngrok.io
+#    port: 21262
+#    username: root
+#    password: m!dw@re2022
+#    sessionTimeout: 5000
+#    channelTimeout: 5000
+#  Mandiri:
+#    host: 1.tcp.ap.ngrok.io
+#    port: 21262
+#    username: root
+#    password: m!dw@re2022
+#    sessionTimeout: 5000
+#    channelTimeout: 5000
+#  BRI:
+#    host: 1.tcp.ap.ngrok.io
+#    port: 21262
+#    username: root
+#    password: m!dw@re2022
+#    sessionTimeout: 5000
+#    channelTimeout: 5000
+#  BCA:
+#    host: 1.tcp.ap.ngrok.io
+#    port: 21262
+#    username: root
+#    password: m!dw@re2022
+#    sessionTimeout: 5000
+#    channelTimeout: 5000
+#  DKI:
+#    host: 1.tcp.ap.ngrok.io
+#    port: 21262
+#    username: root
+#    password: m!dw@re2022
+#    sessionTimeout: 5000
+#    channelTimeout: 5000
+
+
+
+logging:
+#  url: http://log.dika.co.id:3100/loki/api/v1/push
+  #  pattern:
+  #    console: "%clr(%X{CorrelationId}){yellow} %clr(%X{username}){yellow} | %clr(%-5p) | %clr(%d{yyyy-MM-dd E HH:mm:ss.SSS}){blue} | %clr(${PID}){faint} | %clr([%t]){cyan} | %class{36}.%M %L | %clr(%msg){green} %n"
+  file:
+    name: ./logs/settlement-file-upload.log
+  logback:
+    rolling-policy:
+      max-history: 30
+#  level:
+#    root: debug

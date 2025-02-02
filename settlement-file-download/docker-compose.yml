@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  pcbs-settlement-file-download:
+    build : .
+    restart: always
+    container_name: pcbs-settlement-file-download
+    image: pcbs-settlement-file-download:1.0
+    volumes:
+      - /root/logs/pcbs-settlement-file-upload:/logs
+      - /root/settlement-files:/settlement-files
+    environment:
+      - profiles=${profiles}
+      - schedulerCron=0 0 13-22 * * *
+      - generateBni=true
+      - generateMandiri=true
+      - generateBri=true
+      - generateBca=true
+      - generateDki=true
+    networks:
+      - dk-network
+networks:
+  dk-network:
+    name: dk_network
+    external: true

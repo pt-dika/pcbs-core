@@ -1,0 +1,61 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:2001/pcbs_core_db?connectionTimeZone=Asia/Jakarta
+    username: root
+    password: 5ohXP2LBTTPzJ+7oEDL4
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+client:
+  datasharedCore:
+    baseUrl: http://localhost:8030/core-data-shared
+
+#sftp:
+#  BNI:
+#    host: 1.tcp.ap.ngrok.io
+#    port: 21262
+#    username: root
+#    password: m!dw@re2022
+#    sessionTimeout: 5000
+#    channelTimeout: 5000
+#  Mandiri:
+#    host: 1.tcp.ap.ngrok.io
+#    port: 21262
+#    username: root
+#    password: m!dw@re2022
+#    sessionTimeout: 5000
+#    channelTimeout: 5000
+#  BRI:
+#    host: 1.tcp.ap.ngrok.io
+#    port: 21262
+#    username: root
+#    password: m!dw@re2022
+#    sessionTimeout: 5000
+#    channelTimeout: 5000
+#  BCA:
+#    host: 1.tcp.ap.ngrok.io
+#    port: 21262
+#    username: root
+#    password: m!dw@re2022
+#    sessionTimeout: 5000
+#    channelTimeout: 5000
+#  DKI:
+#    host: 1.tcp.ap.ngrok.io
+#    port: 21262
+#    username: root
+#    password: m!dw@re2022
+#    sessionTimeout: 5000
+#    channelTimeout: 5000
+
+
+
+logging:
+  #  pattern:
+  #    console: "%clr(%X{CorrelationId}){yellow} %clr(%X{username}){yellow} | %clr(%-5p) | %clr(%d{yyyy-MM-dd E HH:mm:ss.SSS}){blue} | %clr(${PID}){faint} | %clr([%t]){cyan} | %class{36}.%M %L | %clr(%msg){green} %n"
+  file:
+    name: ./logs/core-data-shared.log
+#  level:
+server:
+  port: 8081
+#    root: debug

@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:mysql://devel-dc-db.dika.co.id:3306/pcbs_core_db?connectionTimeZone=Asia/Jakarta
+    username: root
+    password: 5ohXP2LBTTPzJ+7oEDL4
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+client:
+  datasharedCore:
+    baseUrl: http://172.17.0.1:8031/core-data-shared
+
+logging:
+  url: http://log-dev.dika.co.id:3100/loki/api/v1/push
+  #  pattern:
+  #    console: "%clr(%X{CorrelationId}){yellow} %clr(%X{username}){yellow} | %clr(%-5p) | %clr(%d{yyyy-MM-dd E HH:mm:ss.SSS}){blue} | %clr(${PID}){faint} | %clr([%t]){cyan} | %class{36}.%M %L | %clr(%msg){green} %n"
+  file:
+    name: ./logs/pcbs-settlement-file-download.log
+#  level:
+#    root: debug

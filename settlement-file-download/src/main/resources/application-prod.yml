@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: pcbs-settlement-file-download
+  datasource:
+    url: jdbc:mysql://192.168.200.30:3306/pcbs_core_db?connectionTimeZone=Asia/Jakarta
+    username: root
+    password: t2zQ18BX!6y4
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+client:
+  datasharedCore:
+    baseUrl: http://172.17.0.1:8030/core-data-shared
+
+rabbitmq:
+  rfs-download:
+    queue: rfs.result.queue
+    exchange: rfs.result.exchange
+    routingKey: rfs.result.routingkey
+
+logging:
+#  url: http://log.dika.co.id:3100/loki/api/v1/push
+  #  pattern:
+  #    console: "%clr(%X{CorrelationId}){yellow} %clr(%X{username}){yellow} | %clr(%-5p) | %clr(%d{yyyy-MM-dd E HH:mm:ss.SSS}){blue} | %clr(${PID}){faint} | %clr([%t]){cyan} | %class{36}.%M %L | %clr(%msg){green} %n"
+  file:
+    name: ./logs/pcbs-settlement-file-download.log
+  logback:
+    rolling-policy:
+      max-history: 30
+#  level:
+#    root: debug

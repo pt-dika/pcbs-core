@@ -1,0 +1,9 @@
+generate:
+  bni: ${generateBni}
+  mandiri: ${generateMandiri}
+  bri: ${generateBri}
+  bca: ${generateBca}
+  dki: ${generateDki}
+
+scheduler:
+  cron: ${schedulerCron}

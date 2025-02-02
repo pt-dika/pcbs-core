@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:2001/pcbs_core_db?connectionTimeZone=Asia/Jakarta
+    username: root
+    password: 5ohXP2LBTTPzJ+7oEDL4
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+client:
+  datasharedCore:
+    baseUrl: http://localhost:8030/core-data-shared
+
+rabbitmq:
+  rfs-download:
+    queue: rfs.result.queue
+    exchange: rfs.result.exchange
+    routingKey: rfs.result.routingkey
+
+logging:
+  #  pattern:
+  #    console: "%clr(%X{CorrelationId}){yellow} %clr(%X{username}){yellow} | %clr(%-5p) | %clr(%d{yyyy-MM-dd E HH:mm:ss.SSS}){blue} | %clr(${PID}){faint} | %clr([%t]){cyan} | %class{36}.%M %L | %clr(%msg){green} %n"
+  file:
+    name: ./logs/pcbs-settlement-file-download.log
+#  level:
+#    root: debug
